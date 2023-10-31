@@ -1,0 +1,35 @@
+<!-- app/views/home/index.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Status</title>
+  <style>
+      .status {
+          font-size: 18px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          margin: 10px;
+      }
+      .success {
+          background-color: #4CAF50;
+          color: white;
+      }
+      .error {
+          background-color: #FF5733;
+          color: white;
+      }
+  </style>
+</head>
+<body>
+
+<div class="status <%= ['200','201'].include?(@uos_code) ? 'success' : 'error' %>">
+  UOS Website Status: <%= @uos_code %>
+</div>
+<div class="status <%= ['200','201'].include?(@wise_code) ? 'success' : 'error' %>">
+  WISE Website Status: <%= @wise_code %>
+</div>
+<div class="status <%= ['200','201','302'].include?(@health_code) ? 'success' : 'error' %>">
+  Health Website Status: <%= @health_code %>
+</div>
+</body>
+</html>
