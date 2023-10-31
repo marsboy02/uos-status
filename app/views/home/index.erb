@@ -1,10 +1,10 @@
-<!-- app/views/home/index.html.erb -->
 <!DOCTYPE html>
 <html>
 <head>
   <title>Website Status</title>
   <style>
       .status {
+          text-align: center;
           font-size: 18px;
           padding: 10px;
           border: 1px solid #ccc;
@@ -13,23 +13,23 @@
       .success {
           background-color: #4CAF50;
           color: white;
+
       }
       .error {
           background-color: #FF5733;
           color: white;
       }
+      .message {
+          text-align: center;
+      }
   </style>
 </head>
 <body>
-
-<div class="status <%= ['200','201'].include?(@uos_code) ? 'success' : 'error' %>">
-  UOS Website Status: <%= @uos_code %>
-</div>
-<div class="status <%= ['200','201'].include?(@wise_code) ? 'success' : 'error' %>">
-  WISE Website Status: <%= @wise_code %>
-</div>
-<div class="status <%= ['200','201','302'].include?(@health_code) ? 'success' : 'error' %>">
-  Health Website Status: <%= @health_code %>
-</div>
+<h1 class = "message">uos의 health check 입니다.</h1>
+<% @website_statuses.each do |name, code| %>
+  <div class="status <%= ['200', '302'].include?(code) ? 'success' : 'error' %>">
+    <%= "#{name} : #{code}" %>
+  </div>
+<% end %>
 </body>
 </html>
