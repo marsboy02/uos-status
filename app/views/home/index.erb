@@ -40,11 +40,11 @@
 
       .status-bar {
           text-align: center;
-          font-size: 18px;
+          font-size: 24px;
           padding: 10px;
           border: 1px solid #ccc;
-          margin-right: 25%;
-          margin-left: 25%;
+          margin-right: 20%;
+          margin-left: 20%;
       }
 
       .success-bar {
@@ -57,14 +57,25 @@
           color: white;
       }
 
+      .radius {
+          border-radius: 10px;
+      }
+
       html, body {
           margin: 0;
           padding: 0;
           background-color: #f2f2f2;
       }
 
+      header {
+          background-color: #FFFFFF;
+          padding: 3px 3px;
+          border-bottom: 1px solid #ccc;
+      }
+
+      /* footer 관련 */
       #wrap {
-          min-height: 50vh;
+          min-height: 40vh;
           position: relative;
           width: 100%;
       }
@@ -103,39 +114,40 @@
           margin-left: 20px;
       }
   </style>
+
 </head>
-<body>
 <header>
   <h1 class="message">Status of UOS</h1>
 </header>
 
-<% if @website_statuses.all? { |name, code| ['200','302'].include?(code) } %>
-  <p class="status-bar success-bar">All system Operational</p>
-<% else %>
-  <p class="status-bar error-bar">All systems not Operational</p>
-<% end %>
-
-<h1 class="message">Current Status</h1>
-
-<div class="div-container">
-  <% @website_statuses.each do |name, code| %>
-    <div class="status <%= ['200','302'].include?(code) ? 'success' : 'error' %>">
-      <%= "#{name} : #{code}" %>
-    </div>
+<body>
+  <% if @website_statuses.all? { |name, code| ['200','302'].include?(code) } %>
+    <p class="status-bar success-bar radius">All system Operational! ✔️</p>
+  <% else %>
+    <p class="status-bar error-bar radius">All systems not Operational!! ❌</p>
   <% end %>
-</div>
-<div id='wrap'>
-  <footer>
-    <nav>
-      <a href="https://marsboy.tistory.com" target="_blank">Blog</a>
-      <a href="https://github.com/marsboy02" target="_blank">Github</a>
-    </nav>
-    <p>
-      <span>저자 : marsboy02</span>
-      <span>이메일 : marsboy0619@gmail.com</span>
-      <span>Copyright 2023. marsboy02. All Rights Reserved.</span>
-    </p>
-  </footer>
-</div>
+
+  <h1 class="message">Current Status</h1>
+
+  <div class="div-container">
+    <% @website_statuses.each do |name, code| %>
+      <div class="status radius <%= ['200','302'].include?(code) ? 'success' : 'error' %>">
+        <%= "#{name} : #{code}" %>
+      </div>
+    <% end %>
+  </div>
+  <div id='wrap'>
+    <footer>
+      <nav>
+        <a href="https://marsboy.tistory.com" target="_blank">Blog</a> |
+        <a href="https://github.com/marsboy02" target="_blank">Github</a>
+      </nav>
+      <p>
+        <span>저자 : marsboy02</span><br/>
+        <span>이메일 : marsboy0619@gmail.com</span><br/>
+        <span>Copyright 2023. marsboy02. All Rights Reserved.</span>
+      </p>
+    </footer>
+  </div>
 </body>
 </html>
