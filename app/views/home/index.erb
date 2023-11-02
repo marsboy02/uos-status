@@ -6,6 +6,7 @@
       .div-container {
           display: grid;
           grid-template-columns: 1fr 1fr;
+          margin: 0 10%;
       }
       @media (max-width: 768px) {
           .div-container {
@@ -36,6 +37,10 @@
           text-align: center;
           margin-right: 30px;
           margin-left: 30px;
+      }
+
+      .message-header {
+          text-align: center;
       }
 
       .status-bar {
@@ -71,6 +76,19 @@
           background-color: #FFFFFF;
           padding: 3px 3px;
           border-bottom: 1px solid #ccc;
+          position: relative;
+      }
+
+      .header-div-container {
+          position: absolute;
+          right: 30px;
+          top: 50%;
+          transform: translate(-50%, -50%);
+      }
+      @media (max-width: 768px) {
+          .header-div-container {
+              display: none; /* 모바일에서는 상단 헤더가 보이지 않음 */
+          }
       }
 
       /* footer 관련 */
@@ -116,8 +134,13 @@
   </style>
 
 </head>
+
 <header>
-  <h1 class="message">Status of UOS</h1>
+  <h1 class="message-header">Status of UOS</h1>
+  <div class="header-div-container">
+    <a href="https://github.com/marsboy02/uos-status">Github</a>
+    <a href="https://github.com/marsboy02/uos-status">Readme</a>
+  </div>
 </header>
 
 <body>
