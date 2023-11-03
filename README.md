@@ -38,6 +38,20 @@ echo '[[ -d ~/.rbenv ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbe
 $ source ~/.zshrc
 ```
 
+## Run
+
+**서버 실행**
+
+```bash
+$ rails server
+```
+
+**테스트 실행**
+
+```bash
+$ rails test
+```
+
 ## License
 
 - [MIT License](https://opensource.org/license/mit/)
