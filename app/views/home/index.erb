@@ -4,23 +4,37 @@
   <title>UosStatus</title>
   <style>
       .div-container {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
+          display: flex;
+          flex-wrap: wrap;
           margin: 0 10%;
       }
-      @media (max-width: 768px) {
-          .div-container {
-              grid-template-columns: 1fr; /* 화면이 768px 미만이면 한 열로 변경 */
-          }
+      /*@media (max-width: 768px) {*/
+      /*    .div-container {*/
+      /*        grid-template-columns: 1fr; !* 화면이 768px 미만이면 한 열로 변경 *!*/
+      /*    }*/
+      /*}*/
+
+      .div-container > div {
+          flex: 0 50%;
+      }
+
+
+      .description {
+
+      }
+
+      .weblink {
+
       }
 
       .status {
-          display: inline-block;
+          display: flex;
+          width: 25%;
+          box-sizing: border-box;
           text-align: center;
           font-size: 18px;
           padding: 10px;
           border: 1px solid #ccc;
-          margin: 10px;
       }
 
       .success {
@@ -155,7 +169,15 @@
   <div class="div-container">
     <% @website_statuses.each do |name, code| %>
       <div class="status radius <%= ['200','302'].include?(code) ? 'success' : 'error' %>">
-        <%= "#{name} : #{code}" %>
+        <div>
+          <%= "#{name} : #{code}" %>
+        </div>
+        <div class="explain">
+          <img src="question.png" alt=""/>
+        </div>
+        <div class="weblink">
+          <a href="https://github.com">a</a>
+        </div>
       </div>
     <% end %>
   </div>
