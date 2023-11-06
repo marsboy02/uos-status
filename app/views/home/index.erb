@@ -7,7 +7,7 @@
       .div-container {
           display: flex;
           flex-wrap: wrap;
-          margin: 0 12%;
+          margin: 0 14%;
       }
       /*@media (max-width: 768px) {*/
       /*    .div-container {*/
@@ -54,28 +54,23 @@
           flex: 0 50%;
       }
 
-      .explain {
-        font-size: 20px;
-        margin: 0 10%
-      }
-
       .description {
-
-      }
-
-      .weblink {
           display: flex;
-          justify-content: flex-end;
       }
 
       .status {
           display: flex;
+          justify-content: space-between;
           width: 25%;
           box-sizing: border-box;
           text-align: center;
-          font-size: 18px;
-          padding: 10px;
+          font-size: 20px;
+          padding: 12px;
           border: 1px solid #ccc;
+      }
+
+      .status-code {
+          margin: 0 10px 0 0;
       }
 
       .success {
@@ -120,6 +115,8 @@
       .radius {
           border-radius: 10px;
       }
+
+      /* header 관련 */
 
       html, body {
           margin: 0;
@@ -210,17 +207,16 @@
   <div class="div-container">
     <% @website_statuses.each do |name, data| %>
       <div class="status radius <%= ['200','302'].include?(data[0]) ? 'success' : 'error' %>">
-        <div>
-          <%= "#{name} : #{data[0]}" %>
-        </div>
-        <div id="normalTooltip">
-          <i class="fa-solid fa-circle-question"></i>
-          <span id="normalTooltipText">
+        <div class="description">
+          <div class="status-code">
+            <%= "#{name}" %>
+          </div>
+          <div id="normalTooltip">
+            <i class="fa-solid fa-circle-question"></i>
+            <span id="normalTooltipText">
             <%= "#{data[2]}" %>
           </span>
-        </div>
-        <div class="description">
-
+          </div>
         </div>
         <div class="weblink">
           <a href=<%= data[1] %>>
