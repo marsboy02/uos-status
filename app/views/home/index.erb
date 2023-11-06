@@ -7,7 +7,7 @@
       .div-container {
           display: flex;
           flex-wrap: wrap;
-          margin: 0 10%;
+          margin: 0 12%;
       }
       /*@media (max-width: 768px) {*/
       /*    .div-container {*/
@@ -164,7 +164,7 @@
 </header>
 
 <body>
-  <% if @website_statuses.all? { |name, code| ['200','302'].include?(code) } %>
+  <% if @website_statuses.all? { |name, data| ['200','302'].include?(data[0]) } %>
     <p class="status-bar success-bar radius">All system Operational! ✔️</p>
   <% else %>
     <p class="status-bar error-bar radius">All systems not Operational!! ❌</p>
@@ -173,16 +173,16 @@
   <h1 class="message">Current Status</h1>
 
   <div class="div-container">
-    <% @website_statuses.each do |name, code| %>
-      <div class="status radius <%= ['200','302'].include?(code) ? 'success' : 'error' %>">
+    <% @website_statuses.each do |name, data| %>
+      <div class="status radius <%= ['200','302'].include?(data[0]) ? 'success' : 'error' %>">
         <div>
-          <%= "#{name} : #{code}    " %>
+          <%= "#{name} : #{data[0]}" %>
         </div>
         <div class="description">
           <i class="fa-solid fa-circle-question"></i>
         </div>
         <div class="weblink">
-          <a href="https://github.com">
+          <a href=<%= data[1] %>>
             <i class="fa-solid fa-arrow-up-right-from-square" style="color: #ffffff;"></i>
           </a>
         </div>
