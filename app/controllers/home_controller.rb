@@ -39,6 +39,5 @@ class HomeController < ApplicationController
       response = http.request(Net::HTTP::Get.new(uri.request_uri))
       @website_statuses[website[:name]] = [response.code, website[:url], website[:description]]
     end
-    puts(@website_statuses)
   end
 end
