@@ -20,7 +20,8 @@
       }
 
       .explain {
-        font-size: 30px;
+        font-size: 20px;
+        margin: 0 10%
       }
 
       .description {
@@ -28,7 +29,8 @@
       }
 
       .weblink {
-
+          display: flex;
+          justify-content: flex-end;
       }
 
       .status {
@@ -174,13 +176,15 @@
     <% @website_statuses.each do |name, code| %>
       <div class="status radius <%= ['200','302'].include?(code) ? 'success' : 'error' %>">
         <div>
-          <%= "#{name} : #{code} " %>
+          <%= "#{name} : #{code}    " %>
         </div>
-        <div style="font-size: 20px">
+        <div class="description">
           <i class="fa-solid fa-circle-question"></i>
         </div>
         <div class="weblink">
-          <a href="https://github.com">link</a>
+          <a href="https://github.com">
+            <i class="fa-solid fa-arrow-up-right-from-square" style="color: #ffffff;"></i>
+          </a>
         </div>
       </div>
     <% end %>
