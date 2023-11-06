@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>UosStatus</title>
+  <script src="https://kit.fontawesome.com/209660fc52.js" crossorigin="anonymous"></script>
   <style>
       .div-container {
           display: flex;
@@ -18,6 +19,9 @@
           flex: 0 50%;
       }
 
+      .explain {
+        font-size: 30px;
+      }
 
       .description {
 
@@ -170,13 +174,13 @@
     <% @website_statuses.each do |name, code| %>
       <div class="status radius <%= ['200','302'].include?(code) ? 'success' : 'error' %>">
         <div>
-          <%= "#{name} : #{code}" %>
+          <%= "#{name} : #{code} " %>
         </div>
-        <div class="explain">
-          <img src="question.png" alt=""/>
+        <div style="font-size: 20px">
+          <i class="fa-solid fa-circle-question"></i>
         </div>
         <div class="weblink">
-          <a href="https://github.com">a</a>
+          <a href="https://github.com">link</a>
         </div>
       </div>
     <% end %>
