@@ -6,19 +6,19 @@
   <link rel="stylesheet" href="application.css" type="text/css">
 </head>
 
-<header>
-  <h1 class="message-header">Status of UOS</h1>
-  <div class="header-div-container">
-    <a href="https://github.com/marsboy02/uos-status">
-        <i class="fa-brands fa-github fa-lg" style="margin: 5px; color: black;"></i>
-    </a>
-    <a href="https://github.com/marsboy02/uos-status">
-      <i class="fa-brands fa-readme fa-lg" style="margin: 5px; color: black;"></i>
-    </a>
-  </div>
-</header>
-
 <body>
+  <header>
+    <h1 class="message-header">Status of UOS</h1>
+    <div class="header-div-container">
+      <a href="https://github.com/marsboy02/uos-status">
+        <i class="fa-brands fa-github fa-lg" style="margin: 5px; color: black;"></i>
+      </a>
+      <a href="https://github.com/marsboy02/uos-status">
+        <i class="fa-brands fa-readme fa-lg" style="margin: 5px; color: black;"></i>
+      </a>
+    </div>
+  </header>
+
   <% if @website_statuses.all? { |name, data| ['200','302'].include?(data[0]) } %>
     <p class="status-bar success-bar radius">All system Operational! ✔️</p>
   <% else %>
@@ -50,6 +50,7 @@
     <% end %>
   </div>
   <div id='wrap'>
+
     <footer>
       <nav>
         <a href="https://marsboy.tistory.com" target="_blank">Blog</a> |
