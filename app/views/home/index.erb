@@ -26,7 +26,6 @@
   <% end %>
 
   <h1 class="message">Current Status</h1>
-
   <div class="div-container">
     <% @website_statuses.each do |name, data| %>
       <div class="status radius <%= ['200','302'].include?(data[0]) ? 'success' : 'error' %>">
@@ -49,8 +48,8 @@
       </div>
     <% end %>
   </div>
-  <div id='wrap'>
 
+  <div id='wrap'>
     <footer>
       <nav>
         <a href="https://marsboy.tistory.com" target="_blank">Blog</a> |
@@ -63,5 +62,6 @@
       </p>
     </footer>
   </div>
+
 </body>
 </html>

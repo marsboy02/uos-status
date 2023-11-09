@@ -15,4 +15,4 @@ jobs:
         with:
           bundler-cache: true
       - name: Run tests
-        run: bin/rake
+        run: rails test
