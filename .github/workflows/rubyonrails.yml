@@ -17,4 +17,4 @@ jobs:
       - name: Run tests
         run: bin/rake
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag uos-status:$(date +%s)
+        run: docker build . --file Dockerfile --tag marsboy02/uos-status:$(date +%s)
