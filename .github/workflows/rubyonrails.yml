@@ -16,3 +16,5 @@ jobs:
           bundler-cache: true
       - name: Run tests
         run: bin/rake
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag uos-status:$(date +%s)
