@@ -20,7 +20,7 @@ jobs:
         run: bin/rake
 
   continuous-delivery:
-    name: Push Docker image to Docker Hub
+    needs: continuous-integration
     runs-on: ubuntu-latest
     steps:
       - name: Checkout out the repo
