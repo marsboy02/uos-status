@@ -12,7 +12,7 @@ RUN bundle install
 
 ADD . /docker/app
 
-EXPOSE 3000
+EXPOSE 8080
 
 CMD ["bundle","exec", "puma", "config.ru"]
 
