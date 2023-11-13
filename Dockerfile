@@ -14,6 +14,8 @@ ADD . /docker/app
 
 ENV PORT 3000
 
+ENV HOSTNAME "0.0.0.0"
+
 EXPOSE $PORT
 
 CMD ["bundle","exec", "puma", "config.ru"]
