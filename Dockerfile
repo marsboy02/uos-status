@@ -12,7 +12,9 @@ RUN bundle install
 
 ADD . /docker/app
 
-EXPOSE 3000
+ENV PORT 3000
+
+EXPOSE $(PORT)
 
 CMD ["bundle","exec", "puma", "config.ru"]
 
