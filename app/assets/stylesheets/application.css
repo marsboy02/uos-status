@@ -44,6 +44,12 @@
 .div-container > div {
     flex: 0 50%;
 }
+@media (max-width: 768px) {
+    .div-container > div {
+        flex: 0 100%;
+    }
+}
+
 
 .description {
     display: flex;
