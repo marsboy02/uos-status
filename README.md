@@ -1,11 +1,10 @@
 # UOS status
 
 - 서울시립대학교 서버의 상태를 확인해주는 웹사이트입니다.
-- **Website** : http://uosstatus.com
+- **Website** : https://uosstatus.com
 
 ## Update
 
-- [ ] 기본 홈페이지 제작
 - [ ] 데이터베이스를 연결하여 서버 다운 로그 저장
 
 ## Environment
