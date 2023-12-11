@@ -37,12 +37,22 @@ echo '[[ -d ~/.rbenv ]] && export PATH=${HOME}/.rbenv/bin:${PATH} && eval "$(rbe
 $ source ~/.zshrc
 ```
 
+### credentials 에러가 발생하는 경우 (InvalidMessage)
+
+```bash
+# remove the credentials
+$ rm -rf config/credentials.yml.enc
+
+# create new credentials
+$ EDITOR="mate --wait" bin/rails credentials:edit
+```
+
 ## Run
 
 **서버 실행**
 
 ```bash
-$ rails server
+$ rails server -b 0.0.0.0 -p 3000 -e production
 ```
 
 **테스트 실행**
