@@ -1,5 +1,6 @@
 require 'net/http'
 require 'uri'
+require 'concurrent'
 
 class HomeController < ApplicationController
   def index
@@ -30,26 +31,27 @@ class HomeController < ApplicationController
       # http
       # { name: '교수학습', url: 'http://ctl.uos.ac.kr'},
       # { name: '창업지원단', url: 'http://startup.uos.ac.kr'},
-
     ]
 
+
     @website_statuses = {}
+    @website_statuses = Concurrent::Hash.new
+    threads = []
     websites.each do |website|
-      begin
-      uri = URI.parse(website[:url])
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = (uri.scheme == 'https')
-      response = http.request(Net::HTTP::Get.new(uri.request_uri))
-      @website_statuses[website[:name]] = [response.code, website[:url], website[:description]]
-      rescue OpenSSLError => e
-        # OpenSSLError가 발생한 경우 다른 동작 수행
-        puts "OpenSSLError occurred for #{website[:name]}: #{e.message}"
-        @website_statuses[website[:name]] = [500, website[:url], website[:description]]
-      rescue StandardError => e
-        # 기타 예외 처리
-        puts "An error occurred for #{website[:name]}: #{e.message}"
-        @website_statuses[website[:name]] = [500, website[:url], website[:description]]
+      threads << Thread.new do
+        fetch_website_status(website)
       end
     end
+    threads.each(&:join)
+  end
+
+  def fetch_website_status(website)
+    uri = URI.parse(website[:url])
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = (uri.scheme == 'https')
+    response = http.request(Net::HTTP::Get.new(uri.request_uri))
+    @website_statuses[website[:name]] = [response.code, website[:url], website[:description]]
+  rescue StandardError => e
+    [500, website[:url], website[:description]]
   end
 end
