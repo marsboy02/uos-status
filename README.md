@@ -47,6 +47,13 @@ $ rm -rf config/credentials.yml.enc
 $ EDITOR="mate --wait" bin/rails credentials:edit
 ```
 
+### 접근 권한 문제가 발생하는 경우
+
+```bash
+# config/application.rb file
+config.web_console.whiny_requests = false
+```
+
 ## Run
 
 **서버 실행**
