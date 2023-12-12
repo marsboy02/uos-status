@@ -3,7 +3,7 @@
 .div-container {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 14%;
+    margin: 0 18%;
 }
 
 #normalTooltip {
@@ -61,8 +61,8 @@
     width: 25%;
     box-sizing: border-box;
     text-align: center;
-    font-size: 20px;
-    padding: 12px;
+    font-size: 22px;
+    padding: 14px;
     border: 1px solid #ccc;
 }
 
