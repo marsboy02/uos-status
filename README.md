@@ -3,10 +3,6 @@
 - 서울시립대학교 서버의 상태를 확인해주는 웹사이트입니다.
 - **Website** : https://uosstatus.com
 
-## Update
-
-- [ ] 데이터베이스를 연결하여 서버 다운 로그 저장
-
 ## Environment
 
 ### MacOS ( brew )
@@ -59,7 +55,13 @@ config.web_console.whiny_requests = false
 **서버 실행**
 
 ```bash
-$ rails server -b 0.0.0.0 -p 3000 -e production
+# development
+$ rails server
+```
+
+```bash
+# production
+$ rails server -b 0.0.0.0 -p 3000 -e production -d
 ```
 
 **테스트 실행**
